@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>لوحة التحكم — نظام إشراف المدارس الخاصة</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container topbar">
+      <div class="brand">
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect rx='8' width='64' height='64' fill='%230b3d91'/><text x='32' y='38' text-anchor='middle' font-size='20' fill='white' font-family='Arial'>ED</text></svg>" alt="logo">
+        <div><div class="title">نظام إشراف المدارس الخاصة</div><div class="subtitle small">لوحة تحكم المشرف</div></div>
+      </div>
+      <div class="actions">
+        <button id="burgerBtn" class="burger">&#9776;</button>
+      </div>
+    </div>
+    <nav id="mainNav" class="mainnav container">
+      <a href="index.html">الرئيسية</a>
+      <a href="dashboard.html" class="active">لوحة التحكم</a>
+      <a href="schools.html">قائمة المدارس</a>
+      <a href="payments.html">المدفوعات</a>
+      <a href="transport.html">إدارة الباصات</a>
+      <a href="store.html">المستلزمات</a>
+      <a href="jobs.html">توظيف/تدريب</a>
+      <a href="about.html">عن النظام</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>لوحة التحكم العامة</h2>
+      <p class="small">عرض سريع للإحصاءات والمهام.</p>
+      <div class="cards" style="margin-top:12px">
+        <div class="card"><div class="k">المدارس المفحوصة اليوم</div><div class="v">12</div></div>
+        <div class="card"><div class="k">تقارير جديدة</div><div class="v">3</div></div>
+        <div class="card"><div class="k">طلبات تدريب</div><div class="v">5</div></div>
+      </div>
+    </section>
+
+    <section style="margin-top:14px">
+      <div class="card table">
+        <h3>آخر التقارير الواردة</h3>
+        <ul>
+          <li><div>تقرير زيارة مفاجئة — مدرسة النور</div><div class="small">02 Aug 2025</div></li>
+          <li><div>فحص سلامة — مدرسة الأمل الدولية</div><div class="small">01 Aug 2025</div></li>
+          <li><div>طلب تحديث بيانات — مدرسة المستقبل</div><div class="small">30 Jul 2025</div></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">&copy; 2025 وزارة التربية والتعليم — ديمو</footer>
+<script src="app.js"></script>
+</body>
+</html>

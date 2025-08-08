@@ -1,0 +1,93 @@
+/* style.css - التصميم الحكومي العصري (RTL) */
+:root{
+  --gov-blue: #0b3d91;
+  --gov-blue-2: #08306b;
+  --gov-bg: #f3f6fb;
+  --muted: #6b7280;
+  --card-shadow: 0 6px 18px rgba(11,61,145,0.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Noto Kufi Arabic", Tahoma, Arial, sans-serif;
+  background:var(--gov-bg);
+  color:#0b254f;
+  direction:rtl;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+/* Header / Nav */
+.header{
+  background: linear-gradient(90deg,var(--gov-blue), var(--gov-blue-2));
+  color:#fff;
+}
+.container{max-width:1200px;margin:0 auto;padding:18px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:52px;border-radius:6px}
+.brand .title{font-weight:700;font-size:18px;line-height:1}
+.brand .subtitle{font-size:12px;opacity:0.95}
+.actions{display:flex;gap:8px;align-items:center}
+.btn{background:transparent;border:1px solid rgba(255,255,255,0.18);color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none;cursor:pointer;font-weight:600}
+.btn.primary{background:#fff;color:var(--gov-blue);border:none}
+.search{background:rgba(255,255,255,0.12);padding:6px 8px;border-radius:6px;display:flex;gap:8px;align-items:center}
+.search input{border:none;background:transparent;color:#fff;outline:none}
+
+/* Main nav */
+.mainnav{background:var(--gov-blue);display:flex;gap:8px;padding:8px 0}
+.mainnav a{color:#fff;padding:10px 16px;text-decoration:none;display:inline-block}
+.mainnav a:hover{background:rgba(255,255,255,0.06)}
+
+/* Responsive nav (burger) */
+.burger{display:none;background:transparent;border:none;color:#fff;font-size:22px}
+
+/* Hero */
+.hero{padding:34px 0;background:linear-gradient(180deg, rgba(11,61,145,0.06), transparent)}
+.hero .grid{display:grid;grid-template-columns:1fr 420px;gap:22px;align-items:center}
+.hero .panel{background:#fff;border-radius:10px;padding:18px;box-shadow:var(--card-shadow)}
+.hero h1{margin:0;font-size:28px;color:var(--gov-blue)}
+.hero p{color:var(--muted);margin-top:8px}
+
+/* cards grid */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+.card{background:#fff;border-radius:10px;padding:16px;box-shadow:var(--card-shadow);transition:transform .18s ease, box-shadow .18s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(11,61,145,0.12)}
+.card .k{font-size:14px;color:var(--muted);margin-bottom:6px}
+.card .v{font-weight:700;font-size:20px;color:var(--gov-blue)}
+
+/* table like list */
+.table{background:#fff;border-radius:10px;padding:12px;box-shadow:var(--card-shadow)}
+.table ul{list-style:none;padding:0;margin:0}
+.table li{padding:12px;border-bottom:1px solid #f1f5f9;display:flex;justify-content:space-between;align-items:center}
+.table li:last-child{border-bottom:none}
+
+/* footer */
+.footer{background:var(--gov-blue-2);color:#fff;padding:18px;margin-top:24px;text-align:center;border-top:4px solid rgba(255,255,255,0.03)}
+
+/* modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:flex;align-items:center;justify-content:center;z-index:90;opacity:0;pointer-events:none;transition:opacity .18s ease}
+.modal-backdrop.show{opacity:1;pointer-events:auto}
+.modal{background:#fff;border-radius:10px;padding:18px;max-width:540px;width:100%;box-shadow:0 20px 50px rgba(2,6,23,0.3)}
+
+/* small utilities */
+.row{display:flex;gap:12px;align-items:center}
+.right{margin-right:auto}
+.small{font-size:13px;color:var(--muted)}
+.badge{background:#eef5ff;color:var(--gov-blue);padding:6px 10px;border-radius:999px;font-weight:700}
+
+/* responsive */
+@media (max-width:900px){
+  .hero .grid{grid-template-columns:1fr}
+  .brand .title{font-size:16px}
+  .mainnav{display:none}
+  .burger{display:inline-block}
+  .search{display:none}
+}
+
+/* Page specific visuals */
+.hero-card{display:flex;flex-direction:column;gap:8px}
+.hero-card .muted{color:var(--muted);font-size:13px}
