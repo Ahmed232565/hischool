@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>نظام إشراف المدارس الخاصة</title>
+<link rel="manifest" href="/manifest.json">
+<style>
+  body{font-family: Arial, Tahoma, sans-serif; margin:0; background:#f3f6fb; color:#0b254f}
+  header{background:linear-gradient(90deg,#0b3d91,#08306b); color:#fff; padding:14px; text-align:right}
+  main{padding:16px}
+  .card{background:#fff;border-radius:8px;padding:12px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+  .btn{display:inline-block;padding:8px 12px;background:#0b3d91;color:#fff;border-radius:6px;text-decoration:none}
+</style>
+
+<style>
+#splash {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: #0b3d91;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  color: white;
+  font-size: 22px;
+  z-index: 9999;
+  animation: fadeOut 1s ease forwards;
+  animation-delay: 2s;
+}
+#splash img {
+  width: 120px; height: 120px; margin-bottom: 20px;
+}
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+</style>
+
+</head>
+<body>
+
+<div id="splash">
+  <img src="icon-192.png" alt="App Icon">
+  <div>نظام إشراف المدارس الخاصة</div>
+</div>
+
+<header>
+  <div style="display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:auto">
+    <div style="text-align:left;font-size:13px">Department of Education</div>
+    <div style="text-align:right">
+      <div style="font-weight:700">نظام إشراف المدارس الخاصة</div>
+      <div style="font-size:12px;opacity:0.9">مرحبًا، مُشرف النظام</div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:6px">لوحة التحكم</div>
+    <div>إجمالي المدارس: <strong id="schoolsCount">-</strong></div>
+    <div>إجمالي الطلاب: <strong id="studentsCount">-</strong></div>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:6px">قائمة مدارس (ديمو)</div>
+    <ul id="schoolsList"></ul>
+  </div>
+
+  <a class="btn" id="installBtn" style="display:none">تثبيت التطبيق</a>
+</main>
+
+<script>
+const schools = [
+  {id:1,name:'مدرسة النور الخاصة',area:'المنيل',students:420},
+  {id:2,name:'مدرسة الأمل الدولية',area:'المعادى',students:320},
+  {id:3,name:'مدرسة المستقبل',area:'المقطم',students:210}
+];
+document.getElementById('schoolsCount').innerText = schools.length;
+document.getElementById('studentsCount').innerText = schools.reduce((s,x)=>s+x.students,0);
+const ul = document.getElementById('schoolsList');
+schools.forEach(s=>{
+  const li = document.createElement('li');
+  li.innerText = s.name + ' — ' + s.area + ' — طلاب: ' + s.students;
+  ul.appendChild(li);
+});
+
+// PWA install prompt
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const btn = document.getElementById('installBtn');
+  btn.style.display = 'inline-block';
+  btn.addEventListener('click', async () => {
+    btn.style.display = 'none';
+    deferredPrompt.prompt();
+    const choice = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+  });
+});
+</script>
+</body>
+</html>
